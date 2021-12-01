@@ -39,30 +39,28 @@ public class MemberService {
                         i++;
                         continue;
                     }
-                    try {
-                        if (member.length != 5) {
-                            throw new MemberException("Invalid member data length at line " + i + " : " + Arrays.toString(member));
-                        } else if (member[0].trim().equals("") || member[0].isEmpty()) {
-                            throw new MemberException("Invalid member data at line " + i + " at position 1 : " + Arrays.toString(member));
-                        } else if (member[1].trim().equals("") || member[1].isEmpty()) {
-                            throw new MemberException("Invalid member data at line " + i + " at position 2 : " + Arrays.toString(member));
-                        } else if (member[2].trim().equals("") || member[2].isEmpty()) {
-                            throw new MemberException("Invalid member data at line " + i + " at position 3 : " + Arrays.toString(member));
-                        } else if ( member[3].trim().equals("") || member[3].isEmpty()) {
-                            throw new MemberException("Invalid member data at line " + i + " at position 4 : " + Arrays.toString(member));
-                        } else if (member[4].trim().equals("") || member[4].isEmpty()) {
-                            throw new MemberException("Invalid member data at line " + i + " at position 5 : " + Arrays.toString(member));
-                        } else {
-                            log.info("Adding member: " + member[0]);
-                            membersDTO = new MembersDTO(member[0], member[1], member[2], member[3], Boolean.parseBoolean(member[4]));
-                            membersDTOList.add(membersDTO);
-                        }
-                    } catch (Exception e) {
-                        log.error("Error at line " + i + " : " + Arrays.toString(member));
+                    if (member.length != 5) {
+                        throw new MemberException("Invalid member data length at line " + i + " : " + Arrays.toString(member));
+                    } else if (member[0].trim().equals(null) || member[0].trim().equals("") || member[0].isEmpty()) {
+                        throw new MemberException("Invalid member data at line " + i + " at position 1 : " + Arrays.toString(member));
+                    } else if (member[1].trim().equals(null) || member[1].trim().equals("") || member[1].isEmpty()) {
+                        throw new MemberException("Invalid member data at line " + i + " at position 2 : " + Arrays.toString(member));
+                    } else if (member[2].trim().equals(null) || member[2].trim().equals("") || member[2].isEmpty()) {
+                        throw new MemberException("Invalid member data at line " + i + " at position 3 : " + Arrays.toString(member));
+                    } else if (member[3].trim().equals(null) ||  member[3].trim().equals("") || member[3].isEmpty()) {
+                        throw new MemberException("Invalid member data at line " + i + " at position 4 : " + Arrays.toString(member));
+                    } else if (member[4].trim().equals(null) || member[4].trim().equals("") || member[4].isEmpty()) {
+                        throw new MemberException("Invalid member data at line " + i + " at position 5 : " + Arrays.toString(member));
+                    } else {
+                        log.info("Adding member "+i+" : " + member[0]);
+                        log.info("\nusercode: " + member[0]+"\nusername: " + member[1]+"\njobs_completed: " + member[2]+"\npreffered_location: " + member[3]+"\ninactive: " + member[4]);
+                        membersDTO = new MembersDTO(member[0], member[1], member[2], member[3], Boolean.parseBoolean(member[4]));
+                        membersDTOList.add(membersDTO);
                     }
                     i++;
                 } catch (Exception e) {
                     log.error("Error : " + e.getMessage());
+                    e.printStackTrace();
                     return false;
                 }
             }

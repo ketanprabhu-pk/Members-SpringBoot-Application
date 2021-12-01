@@ -6,3 +6,31 @@
 2021-12-02 02:42:43 ERROR MemberService:60 - Error at line 3 : [abcd123, king, 2, hybrid, false]
 2021-12-02 02:42:43 ERROR MemberService:60 - Error at line 4 : [sdds344, prince, 4, remote, false]
 2021-12-02 02:42:43 ERROR MemberService:60 - Error at line 5 : [jdks123, princess, 1, hybrid, true]
+2021-12-02 02:55:49 ERROR MemberService:61 - Error at line 2 : [cbad123, queen, 5, remote, false]
+2021-12-02 02:55:49 ERROR MemberService:61 - Error at line 3 : [abcd123, king, 2, hybrid, false]
+2021-12-02 02:55:49 ERROR MemberService:61 - Error at line 4 : [sdds344, prince, 4, remote, false]
+2021-12-02 02:55:49 ERROR MemberService:61 - Error at line 5 : [jdks123, princess, 1, hybrid, true]
+2021-12-02 02:59:29 ERROR MemberService:61 - Error at line 2 : [cbad123, queen, 5, remote, false]
+2021-12-02 02:59:29 ERROR MemberService:61 - Error at line 3 : [abcd123, king, 2, hybrid, false]
+2021-12-02 02:59:29 ERROR MemberService:61 - Error at line 4 : [sdds344, prince, 4, remote, false]
+2021-12-02 02:59:29 ERROR MemberService:61 - Error at line 5 : [jdks123, princess, 1, hybrid, true]
+2021-12-02 02:59:42 ERROR MemberService:61 - Error at line 2 : [cbad123, queen, 5, remote, false]
+2021-12-02 02:59:42 ERROR MemberService:61 - Error at line 3 : [abcd123, king, 2, hybrid, false]
+2021-12-02 02:59:42 ERROR MemberService:61 - Error at line 4 : [sdds344, prince, 4, remote, false]
+2021-12-02 02:59:42 ERROR MemberService:61 - Error at line 5 : [jdks123, princess, 1, hybrid, true]
+2021-12-02 03:02:07 ERROR MemberService:61 - Error at line 2 : [cbad123, queen, 5, remote, false]
+Errornull
+2021-12-02 03:02:07 ERROR MemberService:61 - Error at line 3 : [abcd123, king, 2, hybrid, false]
+Errornull
+2021-12-02 03:02:07 ERROR MemberService:61 - Error at line 4 : [sdds344, prince, 4, remote, false]
+Errornull
+2021-12-02 03:02:07 ERROR MemberService:61 - Error at line 5 : [jdks123, princess, 1, hybrid, true]
+Errornull
+2021-12-02 03:04:13 ERROR MemberService:61 - Error at line 2 : [cbad123, queen, 5, remote, false]
+Error: null
+2021-12-02 03:05:59 ERROR MemberService:61 - Error : null
+2021-12-02 03:08:16 ERROR MemberService:61 - Error : null
+2021-12-02 03:09:56 ERROR MemberService:62 - Error : null
+2021-12-02 03:10:51 ERROR MemberService:62 - Error : null
+2021-12-02 03:11:34 ERROR MemberService:62 - Error : null
+2021-12-02 03:13:31 ERROR MemberService:62 - Error : null
