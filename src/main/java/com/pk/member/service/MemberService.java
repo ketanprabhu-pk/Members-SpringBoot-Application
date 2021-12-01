@@ -28,42 +28,46 @@ public class MemberService {
 
     public boolean addMembers(BufferedReader br) throws MemberException  {
         this.br = br;
-        String line=null;
+        String line;
         int i = 1;
-        while ((line = br.readLine()) != null) {
-            try {
-                log.info("BufferedReader : " + line);
-                String[] member = line.split(",");
-                if (member[0].equals("usercode")) {
-                    i++;
-                    continue;
-                }
+        try {
+            while ((line = br.readLine()) != null) {
                 try {
-                    if (member.length != 5) {
-                        throw new MemberException("Invalid member data length at line " + i + " : " + Arrays.toString(member));
-                    } else if (member[0].trim() == null || member[0].trim() == "" || member[0].isEmpty()) {
-                        throw new MemberException("Invalid member data at line " + i + " at position 1 : " + Arrays.toString(member));
-                    } else if (member[1] == null || member[1] == "" || member[1].isEmpty()) {
-                        throw new MemberException("Invalid member data at line " + i + " at position 2 : " + Arrays.toString(member));
-                    } else if (member[2] == null || member[2] == "" || member[2].isEmpty()) {
-                        throw new MemberException("Invalid member data at line " + i + " at position 3 : " + Arrays.toString(member));
-                    } else if (member[3] == null || member[3] == "" || member[3].isEmpty()) {
-                        throw new MemberException("Invalid member data at line " + i + " at position 4 : " + Arrays.toString(member));
-                    } else if (member[4] == null || member[4] == "" || member[4].isEmpty()) {
-                        throw new MemberException("Invalid member data at line " + i + " at position 5 : " + Arrays.toString(member));
-                    } else {
-                        log.info("Adding member: " + member[0]);
-                        membersDTO = new MembersDTO(member[0], member[1], member[2], member[3], Boolean.parseBoolean(member[4]));
-                        membersDTOList.add(membersDTO);
+                    log.info("BufferedReader : " + line);
+                    String[] member = line.split(",");
+                    if (member[0].equals("usercode")) {
+                        i++;
+                        continue;
                     }
-                }catch (Exception e) {
-                    log.error("Error at line " + i + " : " + Arrays.toString(member));
+                    try {
+                        if (member.length != 5) {
+                            throw new MemberException("Invalid member data length at line " + i + " : " + Arrays.toString(member));
+                        } else if (member[0].trim().equals("") || member[0].isEmpty()) {
+                            throw new MemberException("Invalid member data at line " + i + " at position 1 : " + Arrays.toString(member));
+                        } else if (member[1].trim().equals("") || member[1].isEmpty()) {
+                            throw new MemberException("Invalid member data at line " + i + " at position 2 : " + Arrays.toString(member));
+                        } else if (member[2].trim().equals("") || member[2].isEmpty()) {
+                            throw new MemberException("Invalid member data at line " + i + " at position 3 : " + Arrays.toString(member));
+                        } else if ( member[3].trim().equals("") || member[3].isEmpty()) {
+                            throw new MemberException("Invalid member data at line " + i + " at position 4 : " + Arrays.toString(member));
+                        } else if (member[4].trim().equals("") || member[4].isEmpty()) {
+                            throw new MemberException("Invalid member data at line " + i + " at position 5 : " + Arrays.toString(member));
+                        } else {
+                            log.info("Adding member: " + member[0]);
+                            membersDTO = new MembersDTO(member[0], member[1], member[2], member[3], Boolean.parseBoolean(member[4]));
+                            membersDTOList.add(membersDTO);
+                        }
+                    } catch (Exception e) {
+                        log.error("Error at line " + i + " : " + Arrays.toString(member));
+                    }
+                    i++;
+                } catch (Exception e) {
+                    log.error("Error : " + e.getMessage());
+                    return false;
                 }
-                i++;
-            } catch (Exception e) {
-                log.error("Error : " + e.getMessage());
-                return false;
             }
+        } catch (IOException e) {
+            log.error("Error : " + e.getMessage());
         }
         return true;
     }
