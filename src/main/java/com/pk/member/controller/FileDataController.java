@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashMap;
 
 @RestController
@@ -61,7 +62,7 @@ public class FileDataController {
         } catch (Exception e) {
             log.error("Error Exception : " + e.getMessage());
         }
-        Files.deleteIfExists(file.toPath());
+        Files.deleteIfExists((Path) file);
         return new ResponseEntity<>("Error", HttpStatus.BAD_REQUEST);
     }
 

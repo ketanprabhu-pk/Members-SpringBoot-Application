@@ -1,5 +1,8 @@
 package com.pk.member.dto;
 
+import lombok.Data;
+
+@Data
 public class MembersDTO {
     private String userid;
     private String name;
