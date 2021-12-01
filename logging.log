@@ -1,3 +1,8 @@
-2021-11-30 00:48:34 ERROR FileDataController:46 - Error IOException : The system cannot find the path specified
-2021-11-30 00:49:24 ERROR FileDataController:46 - Error IOException : The system cannot find the path specified
-2021-11-30 00:50:33 ERROR FileDataController:45 - Error IOException : The system cannot find the path specified
+2021-12-02 02:39:41 ERROR MemberService:60 - Error at line 2 : [cbad123, queen, 5, remote, false]
+2021-12-02 02:39:41 ERROR MemberService:60 - Error at line 3 : [abcd123, king, 2, hybrid, false]
+2021-12-02 02:39:41 ERROR MemberService:60 - Error at line 4 : [sdds344, prince, 4, remote, false]
+2021-12-02 02:39:41 ERROR MemberService:60 - Error at line 5 : [jdks123, princess, 1, hybrid, true]
+2021-12-02 02:42:43 ERROR MemberService:60 - Error at line 2 : [cbad123, queen, 5, remote, false]
+2021-12-02 02:42:43 ERROR MemberService:60 - Error at line 3 : [abcd123, king, 2, hybrid, false]
+2021-12-02 02:42:43 ERROR MemberService:60 - Error at line 4 : [sdds344, prince, 4, remote, false]
+2021-12-02 02:42:43 ERROR MemberService:60 - Error at line 5 : [jdks123, princess, 1, hybrid, true]
