@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ccf1322b-bf31-448a-bddf-fa2e453db949",
+		"_postman_id": "85d13e35-f359-4f37-b593-fc45c224227e",
 		"name": "Members",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -59,7 +59,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/members/jdks123",
+					"raw": "http://localhost:8080/members/sdds344",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -67,7 +67,7 @@
 					"port": "8080",
 					"path": [
 						"members",
-						"jdks123"
+						"sdds344"
 					]
 				}
 			},
@@ -100,15 +100,15 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userid\": \"cccc344\",\r\n    \"name\": \"prince\",\r\n    \"jobs_completed\": \"4\",\r\n    \"preferred_location\": \"remote\",\r\n    \"inactive\": false\r\n}",
+					"raw": "{\r\n    \"userid\": \"sdds344\",\r\n    \"name\": \"prince1\",\r\n    \"jobs_completed\": \"8\",\r\n    \"preferred_location\": \"remote\",\r\n    \"inactive\": false\r\n}",
 					"options": {
 						"raw": {
-							"language": "javascript"
+							"language": "json"
 						}
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/members/jdks123",
+					"raw": "http://localhost:8080/members/sdds344",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -116,7 +116,7 @@
 					"port": "8080",
 					"path": [
 						"members",
-						"jdks123"
+						"sdds344"
 					]
 				}
 			},
