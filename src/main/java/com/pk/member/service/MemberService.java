@@ -91,7 +91,12 @@ public class MemberService {
     }
 
     public boolean insertMember(MembersDTO membersDTO) {
-        membersMap.put(membersDTO.getUserid(), membersDTO);
+        try {
+            membersMap.put(membersDTO.getUserid(), membersDTO);
+        }catch (Exception e){
+            log.error("Error : " + e.getMessage());
+            return false;
+        }
         return true;
     }
 }
