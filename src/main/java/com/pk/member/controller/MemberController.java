@@ -15,7 +15,7 @@ import java.io.*;
 import java.util.List;
 
 @RestController
-public class FileDataController {
+public class MemberController {
     Logger log= Logger.getLogger(this.getClass());
     BufferedReader br;
 
