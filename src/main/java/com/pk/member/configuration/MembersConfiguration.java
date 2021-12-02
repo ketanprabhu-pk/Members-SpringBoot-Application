@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.HashMap;
 
 @Configuration
-public class MyConfiguration {
+public class MembersConfiguration {
 
     @Bean(name="members")
     public HashMap<String, MembersDTO> membersMap(){

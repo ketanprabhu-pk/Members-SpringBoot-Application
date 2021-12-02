@@ -1,4 +1,4 @@
-usercode,name,jobs_completed,preffered_location,inactive
+userid,name,jobs_completed,preferred_location,inactive
 cbad123,queen,5,remote,false
 abcd123,king,2,hybrid,false
 sdds344,prince,4,remote,false

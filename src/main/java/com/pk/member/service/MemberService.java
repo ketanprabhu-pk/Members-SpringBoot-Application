@@ -2,28 +2,28 @@ package com.pk.member.service;
 
 import com.pk.member.dto.MembersDTO;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class MemberService {
     Logger log= Logger.getLogger(this.getClass());
     BufferedReader br;
-    String line;
     MembersDTO membersDTO;
-    List<MembersDTO> membersDTOList;
+
+    @Autowired
+    public HashMap<String, MembersDTO> membersMap;
 
     public List<MembersDTO> getMembers(){
-        if (membersDTOList.isEmpty())
+        if (membersMap.isEmpty())
             return null;
         else
-            return membersDTOList;
+            return membersMap.values().stream().collect(Collectors.toList());
     }
 
     public boolean addMembers(BufferedReader br) throws MemberException  {
@@ -33,7 +33,7 @@ public class MemberService {
         try {
             while ((line = br.readLine()) != null) {
                 try {
-                    log.info("BufferedReader : " + line);
+//                    log.info("BufferedReader : " + line);
                     String[] member = line.split(",");
                     if (member[0].equals("usercode")) {
                         i++;
@@ -52,10 +52,10 @@ public class MemberService {
                     } else if (member[4].trim().equals(null) || member[4].trim().equals("") || member[4].isEmpty()) {
                         throw new MemberException("Invalid member data at line " + i + " at position 5 : " + Arrays.toString(member));
                     } else {
-                        log.info("Adding member "+i+" : " + member[0]);
-                        log.info("\nusercode: " + member[0]+"\nusername: " + member[1]+"\njobs_completed: " + member[2]+"\npreffered_location: " + member[3]+"\ninactive: " + member[4]);
+//                        log.info("Adding member "+i+" : " + member[0]);
+//                        log.info("\n userid: " + member[0]+"\n name: " + member[1]+"\n jobs_completed: " + member[2]+"\n preferred_location: " + member[3]+"\n inactive: " + member[4]);
                         membersDTO = new MembersDTO(member[0], member[1], member[2], member[3], Boolean.parseBoolean(member[4]));
-                        membersDTOList.add(membersDTO);
+                        membersMap.put( member[0], membersDTO);
                     }
                     i++;
                 } catch (Exception e) {
@@ -70,12 +70,24 @@ public class MemberService {
         return true;
     }
 
-    public MembersDTO updateMember(MembersDTO member) {
-        return null;
+    public MembersDTO getMember(String userid) {
+        return membersMap.get(userid);
     }
 
-    public MembersDTO deleteMember(String id) {
-        return null;
+    public boolean updateMember(String userid, MembersDTO membersDTO) {
+        if (membersMap.containsKey(userid)) {
+            membersMap.put(userid, membersDTO);
+            return true;
+        } else
+            return false;
+    }
+
+    public boolean deleteMember(String userid) {
+        if (membersMap.containsKey(userid)) {
+            membersMap.remove(userid);
+            return true;
+        } else
+            return false;
     }
 
 }
@@ -100,3 +112,28 @@ public class MemberService {
 //        return
 //    }
 //}
+
+
+
+
+
+//    File uploadFile = new File(fileUploadPath + file.getOriginalFilename());
+//        try {
+//            if(uploadFile.createNewFile()){
+//                FileOutputStream fos = new FileOutputStream(uploadFile);
+//                fos.write(file.getBytes());
+//                fos.close();
+//                log.info("File upload success\n");
+//                return new ResponseEntity<Object>("success", HttpStatus.OK);
+//            } else {
+//                log.info("File upload fail, file already exist \n"+file);
+//                return new ResponseEntity<>(" Error creating file or already exists ", HttpStatus.BAD_REQUEST);
+//            }
+//        } catch (FileNotFoundException e) {
+//            log.error("Error FileNotFoundException : "+e.getMessage());
+//        } catch (IOException e) {
+//            log.error("Error IOException : "+e.getMessage());
+//        } catch (Exception e) {
+//            log.error("Error Exception : " + e.getMessage());
+//        }
+//        Files.deleteIfExists((Path) file);
