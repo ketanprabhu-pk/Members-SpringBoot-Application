@@ -90,6 +90,10 @@ public class MemberService {
             return false;
     }
 
+    public boolean insertMember(MembersDTO membersDTO) {
+        membersMap.put(membersDTO.getUserid(), membersDTO);
+        return true;
+    }
 }
 //    File file;
 //    public MemberService(File file) {

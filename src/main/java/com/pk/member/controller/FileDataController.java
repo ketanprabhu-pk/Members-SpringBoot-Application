@@ -41,10 +41,19 @@ public class FileDataController {
         else
             return null;
     }
+
     @RequestMapping(value = "/members", method = RequestMethod.PUT, produces = {"application/json", "application/xml"})
     public MembersDTO updateMember(@PathVariable("userid") String userid, @RequestBody MembersDTO membersDTO) {
         if(memberService.updateMember(userid, membersDTO))
             return memberService.getMember(userid);
+        else
+            return null;
+    }
+
+    @RequestMapping(value = "/members", method = RequestMethod.POST, produces = {"application/json", "application/xml"})
+    public MembersDTO insertMember(@RequestBody MembersDTO membersDTO) {
+        if(memberService.insertMember(membersDTO))
+            return memberService.getMember(membersDTO.getUserid());
         else
             return null;
     }
