@@ -99,6 +99,10 @@ public class MemberService {
         }
         return true;
     }
+
+    public List<MembersDTO> remoteMember() {
+        return membersMap.values().stream().filter(m -> m.getPreferred_location().equals("remote")).collect(Collectors.toList());
+    }
 }
 //    File file;
 //    public MemberService(File file) {

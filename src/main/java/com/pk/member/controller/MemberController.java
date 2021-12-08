@@ -42,6 +42,19 @@ public class MemberController {
             return null;
     }
 
+    @RequestMapping(value = "/members/{userid}", method = RequestMethod.DELETE, produces = {"application/json", "application/xml"})
+    public ResponseEntity<Object> deleteMember(@PathVariable("userid") String userid) {
+        if(memberService.deleteMember(userid))
+            return new ResponseEntity<>("Deleted Member with userId: "+ userid, HttpStatus.OK);
+        else
+            return new ResponseEntity<>("Error while deleting the Member ", HttpStatus.BAD_REQUEST);
+    }
+
+    @RequestMapping(value = "/members/remote", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
+    public List<MembersDTO> remoteMember() {
+        return memberService.remoteMember();
+    }
+
     @RequestMapping(value = "/members", method = RequestMethod.PUT, produces = {"application/json", "application/xml"})
     public MembersDTO updateMember(@PathVariable("userid") String userid, @RequestBody MembersDTO membersDTO) {
         if(memberService.updateMember(userid, membersDTO))
@@ -56,14 +69,6 @@ public class MemberController {
             return memberService.getMember(membersDTO.getUserid());
         else
             return null;
-    }
-
-    @RequestMapping(value = "/members/{userid}", method = RequestMethod.DELETE, produces = {"application/json", "application/xml"})
-    public ResponseEntity<Object> deleteMember(@PathVariable("userid") String userid) {
-        if(memberService.deleteMember(userid))
-            return new ResponseEntity<>("Deleted Member with userId: "+ userid, HttpStatus.OK);
-        else
-            return new ResponseEntity<>("Error while deleting the Member ", HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(value = "/members", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
