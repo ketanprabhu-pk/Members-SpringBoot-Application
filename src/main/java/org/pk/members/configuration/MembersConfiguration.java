@@ -1,6 +1,6 @@
-package com.pk.member.configuration;
+package org.pk.members.configuration;
 
-import com.pk.member.dto.MembersDTO;
+import org.pk.members.dto.MembersDTO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

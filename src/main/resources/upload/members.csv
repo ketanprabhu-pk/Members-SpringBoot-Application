@@ -1,5 +1,5 @@
 userid,name,jobs_completed,preferred_location,inactive
 cbad123,queen,5,remote,false
-abcd123,king,2,hybrid,false
+abcd123,king,2,hybrid,true
 sdds344,prince,4,remote,false
 jdks123,princess,1,hybrid,true

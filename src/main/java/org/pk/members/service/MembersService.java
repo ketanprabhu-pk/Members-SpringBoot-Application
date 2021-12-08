@@ -1,6 +1,6 @@
-package com.pk.member.service;
+package org.pk.members.service;
 
-import com.pk.member.dto.MembersDTO;
+import org.pk.members.dto.MembersDTO;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class MemberService {
+public class MembersService {
     Logger log= Logger.getLogger(this.getClass());
     BufferedReader br;
     MembersDTO membersDTO;
@@ -26,7 +26,7 @@ public class MemberService {
             return membersMap.values().stream().collect(Collectors.toList());
     }
 
-    public boolean addMembers(BufferedReader br) throws MemberException  {
+    public boolean addMembers(BufferedReader br) throws MembersException {
         this.br = br;
         String line;
         int i = 1;
@@ -40,17 +40,17 @@ public class MemberService {
                         continue;
                     }
                     if (member.length != 5) {
-                        throw new MemberException("Invalid member data length at line " + i + " : " + Arrays.toString(member));
+                        throw new MembersException("Invalid member data length at line " + i + " : " + Arrays.toString(member));
                     } else if (member[0].trim().equals(null) || member[0].trim().equals("") || member[0].isEmpty()) {
-                        throw new MemberException("Invalid member data at line " + i + " at position 1 : " + Arrays.toString(member));
+                        throw new MembersException("Invalid member data at line " + i + " at position 1 : " + Arrays.toString(member));
                     } else if (member[1].trim().equals(null) || member[1].trim().equals("") || member[1].isEmpty()) {
-                        throw new MemberException("Invalid member data at line " + i + " at position 2 : " + Arrays.toString(member));
+                        throw new MembersException("Invalid member data at line " + i + " at position 2 : " + Arrays.toString(member));
                     } else if (member[2].trim().equals(null) || member[2].trim().equals("") || member[2].isEmpty()) {
-                        throw new MemberException("Invalid member data at line " + i + " at position 3 : " + Arrays.toString(member));
+                        throw new MembersException("Invalid member data at line " + i + " at position 3 : " + Arrays.toString(member));
                     } else if (member[3].trim().equals(null) ||  member[3].trim().equals("") || member[3].isEmpty()) {
-                        throw new MemberException("Invalid member data at line " + i + " at position 4 : " + Arrays.toString(member));
+                        throw new MembersException("Invalid member data at line " + i + " at position 4 : " + Arrays.toString(member));
                     } else if (member[4].trim().equals(null) || member[4].trim().equals("") || member[4].isEmpty()) {
-                        throw new MemberException("Invalid member data at line " + i + " at position 5 : " + Arrays.toString(member));
+                        throw new MembersException("Invalid member data at line " + i + " at position 5 : " + Arrays.toString(member));
                     } else {
 //                        log.info("Adding member "+i+" : " + member[0]);
 //                        log.info("\n userid: " + member[0]+"\n name: " + member[1]+"\n jobs_completed: " + member[2]+"\n preferred_location: " + member[3]+"\n inactive: " + member[4]);

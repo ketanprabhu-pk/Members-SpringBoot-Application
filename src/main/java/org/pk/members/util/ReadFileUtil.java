@@ -1,4 +1,4 @@
-package com.pk.member.util;
+package org.pk.members.util;
 
 public class ReadFileUtil {
 

@@ -1,13 +1,13 @@
-package com.pk.member;
+package org.pk.members;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MemberApplication {
+public class MembersApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MemberApplication.class, args);
+		SpringApplication.run(MembersApplication.class, args);
 	}
 
 }

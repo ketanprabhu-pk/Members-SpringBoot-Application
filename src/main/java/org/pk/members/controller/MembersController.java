@@ -1,8 +1,8 @@
-package com.pk.member.controller;
+package org.pk.members.controller;
 
-import com.pk.member.dto.MembersDTO;
-import com.pk.member.service.MemberException;
-import com.pk.member.service.MemberService;
+import org.pk.members.dto.MembersDTO;
+import org.pk.members.service.MembersException;
+import org.pk.members.service.MembersService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,18 +15,18 @@ import java.io.*;
 import java.util.List;
 
 @RestController
-public class MemberController {
+public class MembersController {
     Logger log= Logger.getLogger(this.getClass());
     BufferedReader br;
 
     @Autowired
-    private MemberService memberService;
+    private MembersService memberService;
 
     @Value("${file.upload.path}")
     private String fileUploadPath;
 
     @PostMapping("/members-upload")
-    public ResponseEntity<Object> upload(@RequestParam("file") MultipartFile file) throws IOException, MemberException {
+    public ResponseEntity<Object> upload(@RequestParam("file") MultipartFile file) throws IOException, MembersException {
         br = new BufferedReader(new InputStreamReader(file.getInputStream()));
         if(memberService.addMembers(br))
             return new ResponseEntity<>("File Data uploaded Successfully ", HttpStatus.OK);
@@ -55,7 +55,7 @@ public class MemberController {
         return memberService.remoteMember();
     }
 
-    @RequestMapping(value = "/members", method = RequestMethod.PUT, produces = {"application/json", "application/xml"})
+    @RequestMapping(value = "/members/{userid}", method = RequestMethod.PUT, produces = {"application/json", "application/xml"})
     public MembersDTO updateMember(@PathVariable("userid") String userid, @RequestBody MembersDTO membersDTO) {
         if(memberService.updateMember(userid, membersDTO))
             return memberService.getMember(userid);
