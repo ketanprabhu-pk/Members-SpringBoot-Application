@@ -20,7 +20,7 @@ public class MembersController {
     BufferedReader br;
 
     @Autowired
-    private MembersService memberService;
+    private MembersService membersService;
 
     @Value("${file.upload.path}")
     private String fileUploadPath;
@@ -28,7 +28,7 @@ public class MembersController {
     @PostMapping("/members-upload")
     public ResponseEntity<Object> upload(@RequestParam("file") MultipartFile file) throws IOException, MembersException {
         br = new BufferedReader(new InputStreamReader(file.getInputStream()));
-        if(memberService.addMembers(br))
+        if(membersService.addMembers(br))
             return new ResponseEntity<>("File Data uploaded Successfully ", HttpStatus.OK);
         else
             return new ResponseEntity<>("File Data uploaded Failed ", HttpStatus.BAD_REQUEST);
@@ -36,15 +36,15 @@ public class MembersController {
 
     @RequestMapping(value = "/members/{userid}", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
     public MembersDTO getMember(@PathVariable("userid") String userid) {
-        if(memberService.getMember(userid)!=null)
-            return memberService.getMember(userid);
+        if(membersService.getMember(userid)!=null)
+            return membersService.getMember(userid);
         else
             return null;
     }
 
     @RequestMapping(value = "/members/{userid}", method = RequestMethod.DELETE, produces = {"application/json", "application/xml"})
     public ResponseEntity<Object> deleteMember(@PathVariable("userid") String userid) {
-        if(memberService.deleteMember(userid))
+        if(membersService.deleteMember(userid))
             return new ResponseEntity<>("Deleted Member with userId: "+ userid, HttpStatus.OK);
         else
             return new ResponseEntity<>("Error while deleting the Member ", HttpStatus.BAD_REQUEST);
@@ -52,27 +52,27 @@ public class MembersController {
 
     @RequestMapping(value = "/members/remote", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
     public List<MembersDTO> remoteMember() {
-        return memberService.remoteMember();
+        return membersService.remoteMember();
     }
 
     @RequestMapping(value = "/members/{userid}", method = RequestMethod.PUT, produces = {"application/json", "application/xml"})
     public MembersDTO updateMember(@PathVariable("userid") String userid, @RequestBody MembersDTO membersDTO) {
-        if(memberService.updateMember(userid, membersDTO))
-            return memberService.getMember(userid);
+        if(membersService.updateMember(userid, membersDTO))
+            return membersService.getMember(userid);
         else
             return null;
     }
 
     @RequestMapping(value = "/members", method = RequestMethod.POST, produces = {"application/json", "application/xml"})
     public MembersDTO insertMember(@RequestBody MembersDTO membersDTO) {
-        if(memberService.insertMember(membersDTO))
-            return memberService.getMember(membersDTO.getUserid());
+        if(membersService.insertMember(membersDTO))
+            return membersService.getMember(membersDTO.getUserid());
         else
             return null;
     }
 
     @RequestMapping(value = "/members", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
     public List<MembersDTO> getMembers() {
-        return memberService.getMembers();
+        return membersService.getMembers();
     }
 }

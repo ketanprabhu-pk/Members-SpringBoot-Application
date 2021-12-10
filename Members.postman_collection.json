@@ -6,121 +6,287 @@
 	},
 	"item": [
 		{
-			"name": "member-upload",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "file",
-							"type": "file",
-							"src": "/D:/projects/java/maven/Members/members.csv"
+			"name": "Members",
+			"item": [
+				{
+					"name": "members-upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/projects/java/springBoot/member/src/main/resources/upload/members.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/members-upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"members-upload"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/members-upload",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"members-upload"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "members",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/members",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"members"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "member",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/members/sdds344",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"members",
-						"sdds344"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "member",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/members/jdks123",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"members",
-						"jdks123"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "New Request",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"userid\": \"sdds344\",\r\n    \"name\": \"prince1\",\r\n    \"jobs_completed\": \"8\",\r\n    \"preferred_location\": \"remote\",\r\n    \"inactive\": false\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "members",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/members",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"members"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/members/sdds344",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"members",
-						"sdds344"
-					]
+				{
+					"name": "single-members",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/members/sdds344",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"members",
+								"sdds344"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "membes remote",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/members/remote",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"members",
+								"remote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "members",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userid\": \"sdds344\",\r\n    \"name\": \"prince1\",\r\n    \"jobs_completed\": \"8\",\r\n    \"preferred_location\": \"remote\",\r\n    \"inactive\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/members/sdds344",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"members",
+								"sdds344"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "members",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/members/jdks123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"members",
+								"jdks123"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Member",
+			"item": [
+				{
+					"name": "member",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userid\": \"sdds345\",\r\n    \"name\": \"kgfbff\",\r\n    \"jobsCompleted\": \"98\",\r\n    \"preferredLocation\": \"remote\",\r\n    \"inactive\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/member",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "member",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "single-member",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member/sdds344",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"sdds344"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "membe-max-jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member/max-jobs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"max-jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "membe-remote",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member/remote",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"remote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "member",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userid\": \"sdds344\",\r\n    \"name\": \"prince1\",\r\n    \"jobsCompleted\": \"118\",\r\n    \"preferredLocation\": \"remote\",\r\n    \"inactive\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/member/sdds344",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"sdds344"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

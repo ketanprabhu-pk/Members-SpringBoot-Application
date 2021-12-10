@@ -22,4 +22,8 @@ public class Member {
     private int jobsCompleted;
     private String preferredLocation;
     private boolean profileCompleted;
+
+    public boolean getProfileCompleted() {
+        return profileCompleted;
+    }
 }
